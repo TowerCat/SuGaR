@@ -15,7 +15,7 @@ if __name__ == "__main__":
                         type=int, default=7000, 
                         help='iteration to load.')
     
-    parser.add_argument('-m', '--coarse_model_path', type=str, default=None, help='')
+    parser.add_argument('-m', '--coarse_model_path', type=str, default=None, help='这里是精确到coarse里面的<int>.pt')
     
     parser.add_argument('-l', '--surface_level', type=float, default=None, 
                         help='Surface level to extract the mesh at. If None, will extract levels 0.1, 0.3 and 0.5')

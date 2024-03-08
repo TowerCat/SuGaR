@@ -67,10 +67,10 @@ def extract_mesh_from_coarse_sugar(args):
     
     # Mesh output dir
     if args.mesh_output_dir is None:
-        if len(args.scene_path.split("/")[-1]) > 0:
-            args.mesh_output_dir = os.path.join("./output/coarse_mesh", args.scene_path.split("/")[-1])
+        if len(args.scene_path.split(os.sep)[-1]) > 0:
+            args.mesh_output_dir = os.path.join("output\coarse_mesh", args.scene_path.split(os.sep)[-1])
         else:
-            args.mesh_output_dir = os.path.join("./output/coarse_mesh", args.scene_path.split("/")[-2])
+            args.mesh_output_dir = os.path.join("output\coarse_mesh", args.scene_path.split(os.sep)[-2])
     mesh_output_dir = args.mesh_output_dir
     os.makedirs(mesh_output_dir, exist_ok=True)
             
@@ -477,7 +477,7 @@ def extract_mesh_from_coarse_sugar(args):
                     if use_vanilla_3dgs:
                         sugar_mesh_path = 'sugarmesh_vanilla3dgs_levelZZ_decimAA.ply'
                     else:
-                        sugar_mesh_path = 'sugarmesh_' + sugar_checkpoint_path.split('/')[-2].replace('sugarcoarse_', '') + '_levelZZ_decimAA.ply'
+                        sugar_mesh_path = 'sugarmesh_' + sugar_checkpoint_path.split(os.sep)[-2].replace('sugarcoarse_', '') + '_levelZZ_decimAA.ply'
                     sugar_mesh_path = sugar_mesh_path.replace(
                         'ZZ', str(surface_level).replace('.', '')
                         ).replace(
@@ -612,7 +612,7 @@ def extract_mesh_from_coarse_sugar(args):
                     if use_vanilla_3dgs:
                         sugar_mesh_path = 'sugarmesh_vanilla3dgs_poissoncenters_decimAA.ply'
                     else:
-                        sugar_mesh_path = 'sugarmesh_' + sugar_checkpoint_path.split('/')[-2].replace('sugarcoarse_', '') + '_poissoncenters_decimAA.ply'
+                        sugar_mesh_path = 'sugarmesh_' + sugar_checkpoint_path.split(os.sep)[-2].replace('sugarcoarse_', '') + '_poissoncenters_decimAA.ply'
                     sugar_mesh_path = sugar_mesh_path.replace(
                             'AA', str(decimation_target).replace('.', '')
                             )
@@ -745,7 +745,7 @@ def extract_mesh_from_coarse_sugar(args):
         if use_vanilla_3dgs:
             sugar_mesh_path = 'sugarmesh_vanilla3dgsmarchingcubes_levelZZ_decimAA.ply'
         else:
-            sugar_mesh_path = 'sugarmesh_' + sugar_checkpoint_path.split('/')[-2].replace('sugarcoarse_', '') + 'marchingcubes_levelZZ_decimAA.ply'
+            sugar_mesh_path = 'sugarmesh_' + sugar_checkpoint_path.split(os.sep)[-2].replace('sugarcoarse_', '') + 'marchingcubes_levelZZ_decimAA.ply'
         sugar_mesh_path = sugar_mesh_path.replace(
             'ZZ', str(surface_level).replace('.', '')
             ).replace(

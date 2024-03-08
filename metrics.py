@@ -147,12 +147,12 @@ if __name__ == "__main__":
     
     # ==========================
 
-    result_file_dir = './output/metrics/'
+    result_file_dir = 'output\metrics\\'
     os.makedirs(result_file_dir, exist_ok=True)
     results = {}
     
     for source_path in gs_checkpoints_eval.keys():
-        scene_name = source_path.split('/')[-1]
+        scene_name = source_path.split(os.sep)[-1]
         CONSOLE.print(f"\n===== Processing scene {scene_name}... =====")
         scene_results = {}
         
@@ -261,7 +261,7 @@ if __name__ == "__main__":
                             CONSOLE.print("Using UV texture for rendering.")
                             coarse_estimation_factor_str = str(coarse_estimation_factor).replace('.', '')
                             surface_level_str = str(surface_level).replace('.', '')
-                            textured_mesh_path = os.path.join('./output/refined_mesh/', scene_name, 
+                            textured_mesh_path = os.path.join('output\\refined_mesh\\', scene_name,
                                         f'sugarfine_3Dgs{coarse_iteration_to_load}_{estim_method}estim{coarse_estimation_factor_str}_sdfnorm02_level{surface_level_str}_decim{decimation_target}_normalconsistency01_gaussperface{n_gaussians_per_surface_triangle}.obj')
                             CONSOLE.print(f'Loading textured mesh: {textured_mesh_path}')
                             
@@ -313,26 +313,26 @@ if __name__ == "__main__":
                             
                             if use_marching_cubes:
                                 CONSOLE.print("Using Marching Cubes for mesh extraction.")
-                                sugar_mesh_path = 'sugarmesh_' + sugar_checkpoint_path.split('/')[-2].replace('sugarcoarse_', '') + 'marchingcubes_levelZZ_decimAA.ply'
+                                sugar_mesh_path = 'sugarmesh_' + sugar_checkpoint_path.split(os.sep)[-2].replace('sugarcoarse_', '') + 'marchingcubes_levelZZ_decimAA.ply'
                             elif use_poisson_center:
                                 CONSOLE.print("Using Poisson Center for mesh extraction.")
-                                sugar_mesh_path = 'sugarmesh_' + sugar_checkpoint_path.split('/')[-2].replace('sugarcoarse_', '') + '_poissoncenters_decimAA.ply'
+                                sugar_mesh_path = 'sugarmesh_' + sugar_checkpoint_path.split(os.sep)[-2].replace('sugarcoarse_', '') + '_poissoncenters_decimAA.ply'
                             else:                        
-                                sugar_mesh_path = 'sugarmesh_' + sugar_checkpoint_path.split('/')[-2].replace('sugarcoarse_', '') + '_levelZZ_decimAA.ply'
+                                sugar_mesh_path = 'sugarmesh_' + sugar_checkpoint_path.split(os.sep)[-2].replace('sugarcoarse_', '') + '_levelZZ_decimAA.ply'
                             sugar_mesh_path = sugar_mesh_path.replace(
                                 'ZZ', str(surface_level).replace('.', '')
                                 ).replace(
                                     'AA', str(decimation_target).replace('.', '')
                                     )
-                            mesh_save_dir = os.path.join('./output/coarse_mesh/', scene_name)
+                            mesh_save_dir = os.path.join('output\coarse_mesh\\', scene_name)
                             sugar_mesh_path = os.path.join(mesh_save_dir, sugar_mesh_path)
                             CONSOLE.print(f'Loading mesh to bind to: {sugar_mesh_path}')
                             o3d_mesh = o3d.io.read_triangle_mesh(sugar_mesh_path)
                             
                             # Loading refined SuGaR model
-                            mesh_name = sugar_mesh_path.split("/")[-1].split(".")[0]
+                            mesh_name = sugar_mesh_path.split(os.sep)[-1].split(".")[0]
                             refined_sugar_path = 'sugarfine_' + mesh_name.replace('sugarmesh_', '') + '_normalconsistencyXX_gaussperfaceYY/'
-                            refined_sugar_path = os.path.join(os.path.join('./output/refined/', scene_name), refined_sugar_path)
+                            refined_sugar_path = os.path.join(os.path.join('output\\refined\\', scene_name), refined_sugar_path)
                             refined_sugar_path = refined_sugar_path.replace(
                                 'XX', str(surface_mesh_normal_consistency_factor).replace('.', '')
                                 ).replace(

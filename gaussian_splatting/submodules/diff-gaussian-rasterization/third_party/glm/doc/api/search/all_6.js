@@ -40,7 +40,7 @@ var searchData=
   ['glm_5fext_5fvector_5fuint1',['GLM_EXT_vector_uint1',['../a00276.html',1,'']]],
   ['glm_5fext_5fvector_5fuint1_5fprecision',['GLM_EXT_vector_uint1_precision',['../a00277.html',1,'']]],
   ['glm_5fext_5fvector_5fulp',['GLM_EXT_vector_ulp',['../a00278.html',1,'']]],
-  ['gauss',['gauss',['../a00326.html#ga0b50b197ff74261a0fad90f4b8d24702',1,'glm::gauss(T x, T ExpectedValue, T StandardDeviation)'],['../a00326.html#gad19ec8754a83c0b9a8dc16b7e60705ab',1,'glm::gauss(vec&lt; 2, T, Q &gt; const &amp;Coord, vec&lt; 2, T, Q &gt; const &amp;ExpectedValue, vec&lt; 2, T, Q &gt; const &amp;StandardDeviation)']]],
+  ['train',['train',['../a00326.html#ga0b50b197ff74261a0fad90f4b8d24702',1,'glm::train(T x, T ExpectedValue, T StandardDeviation)'],['../a00326.html#gad19ec8754a83c0b9a8dc16b7e60705ab',1,'glm::train(vec&lt; 2, T, Q &gt; const &amp;Coord, vec&lt; 2, T, Q &gt; const &amp;ExpectedValue, vec&lt; 2, T, Q &gt; const &amp;StandardDeviation)']]],
   ['gaussrand',['gaussRand',['../a00300.html#ga5193a83e49e4fdc5652c084711083574',1,'glm']]],
   ['geometric_2ehpp',['geometric.hpp',['../a00036.html',1,'']]],
   ['glm_2ehpp',['glm.hpp',['../a00037.html',1,'']]],
