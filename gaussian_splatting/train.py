@@ -137,8 +137,9 @@ def prepare_output_and_logger(args):
             unique_str=os.getenv('OAR_JOB_ID')
         else:
             unique_str = str(uuid.uuid4())
-        args.model_path = os.path.join("./output/", unique_str[0:10])
-        
+        # args.model_path = os.path.join("./output/", unique_str[0:10])
+        args.model_path = os.path.join("./output/", "originGsModel") # 方便批量自动化
+
     # Set up output folder
     print("Output folder: {}".format(args.model_path))
     os.makedirs(args.model_path, exist_ok = True)
